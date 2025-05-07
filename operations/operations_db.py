@@ -1,7 +1,6 @@
 from sqlmodel import Session, select
 from data.models import Usuario, EstadoUsuario, Tarea
 
-# Operaciones de Usuario
 def crear_usuario(session: Session, usuario: Usuario):
     session.add(usuario)
     session.commit()
@@ -40,7 +39,7 @@ def usuarios_premium_y_activos(session: Session):
         select(Usuario).where(Usuario.estado == EstadoUsuario.activo, Usuario.premium == True)
     ).all()
 
-# Operaciones de Tarea
+# --------- Operaciones de Tarea ---------
 def crear_tarea(session: Session, tarea: Tarea):
     session.add(tarea)
     session.commit()
